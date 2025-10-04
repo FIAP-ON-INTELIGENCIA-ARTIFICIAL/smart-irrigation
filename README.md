@@ -1,3 +1,25 @@
+# 🌾 Projeto AgroVision - Aplicação para Apoio ao Agronegócio
+
+## 📌 Resumo do Projeto
+O projeto tem como objetivo desenvolver **uma aplicação em Python** para auxiliar agricultores no **cálculo de áreas de plantio, aplicação de insumos e previsão de produção agrícola**.  
+Além da implementação prática, o projeto integra **análises estatísticas em R**, permitindo explorar dados coletados de forma mais aprofundada, apoiando a **tomada de decisão no agronegócio**.  
+
+O escopo também inclui:
+- **Integração com APIs meteorológicas públicas**, para coleta e análise de dados climáticos.  
+- **Uso de GitHub** como plataforma de versionamento e colaboração, simulando um ambiente real de desenvolvimento de software.  
+- **Reflexão crítica** sobre o impacto social, ético e ambiental das tecnologias aplicadas ao agronegócio, por meio de atividades de leitura e resumo de artigos acadêmicos.  
+
+---
+
+## Apresentação do Seu Jorge do Agro
+
+Conheça o Seu Jorge, agricultor do interior de Goiás e cliente representativo do Projeto AgroVision.  
+Neste vídeo, ele compartilha sua experiência no campo e como a tecnologia pode transformar a produção agrícola.(click na imagem)
+
+[![Apresentação do Seu Jorge do Agro](https://img.youtube.com/vi/cSJFwvnrj1w/hqdefault.jpg)](https://www.youtube.com/watch?v=cSJFwvnrj1w)
+
+---
+
 # 🌱 Smart Irrigation
 
 Sistema experimental de irrigação inteligente de baixo custo, projetado para **testar lógicas de irrigação baseadas em nutrientes (NPK), pH e umidade do solo**, com possibilidade de integração climática (OpenWeather) e análise estatística (R).
@@ -18,7 +40,7 @@ A proposta busca oferecer um **ambiente replicável e acessível** para pesquisa
 
 ## Arquitetura
 
-```mermaid
+```
 flowchart LR
 A[Sensores (NPK, LDR, DHT22)] --> B[Microcontrolador (ESP32/Arduino)]
 B -->|Serial| C[Python Simulator]
@@ -57,3 +79,51 @@ C -->|API| F[OpenWeather]
 
 O sistema pode suspender a irrigação automática se houver previsão de chuva nas próximas 12h, consultando a API do OpenWeather.
 
+## 👥 Time
+
+<table>
+  <tr>
+    <td width="110" align="center" valign="top">
+      <a href="https://github.com/SabrinaOtoni">
+        <img src="https://github.com/SabrinaOtoni.png" width="100" height="100" alt="Avatar de Sabrina Otoni" style="border-radius:50%; object-fit:cover;" />
+      </a>
+    </td>
+    <td valign="middle">
+      <strong style="font-size:1.05rem;">Sabrina Otoni</strong><br/>
+      <a href="https://github.com/SabrinaOtoni">@SabrinaOtoni</a><br/>
+      <img alt="Papel: Tutor" src="https://img.shields.io/badge/papel-Tutor-2ea44f?style=flat-square" />
+    </td>
+    <td width="110" align="center" valign="top">
+      <a href="https://github.com/henriquehsilva">
+        <img src="https://github.com/henriquehsilva.png" width="100" height="100" alt="Avatar de Henrique Silva" style="border-radius:50%; object-fit:cover;" />
+      </a>
+    </td>
+    <td valign="middle">
+      <strong style="font-size:1.05rem;">Henrique Silva</strong><br/>
+      <a href="https://github.com/henriquehsilva">@henriquehsilva</a><br/>
+      <img alt="Papel" src="https://img.shields.io/badge/papel-Desenvolvedor-36a2eb?style=flat-square" />
+    </td>
+    <td width="110" align="center" valign="top">
+      <a href="https://chatgpt.com/codex">
+        <img src="./members/codex.png" width="100" height="100" alt="Avatar de Codex GPT" style="border-radius:50%; object-fit:cover;" />
+      </a>
+    </td>
+    <td valign="middle">
+      <strong style="font-size:1.05rem;">Codex GPT</strong><br/>
+      <a href="https://chatgpt.com/codex">@codex</a><br/>
+      <img alt="Papel" src="https://img.shields.io/badge/papel-Desenvolvedor-36a2eb?style=flat-square" />
+    </td>
+  </tr>
+  <tr>
+    <td width="110" align="center" valign="top">
+      <a href="https://sora.chatgpt.com/">
+        <img src="./members/sora.png" width="100" height="100" alt="Avatar de Sora GPT" style="border-radius:50%; object-fit:cover;" />
+      </a>
+    </td>
+    <td valign="middle">
+      <strong style="font-size:1.05rem;">Sora GPT</strong><br/>
+      <a href="https://sora.chatgpt.com/">@sora</a><br/>
+      <img alt="Papel: Designer" src="https://img.shields.io/badge/papel-Designer-f59e0b?style=flat-square" />
+    </td>
+  </tr>
+</table>
