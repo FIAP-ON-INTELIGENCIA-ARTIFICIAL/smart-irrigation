@@ -114,6 +114,36 @@ O sistema pode suspender a irrigação automática se houver previsão de chuva 
       <img alt="Papel" src="https://img.shields.io/badge/papel-Desenvolvedor-36a2eb?style=flat-square" />
     </td>
     <td width="110" align="center" valign="top">
+      <a href="https://github.com/JoaoMDPaiva">
+        <img src="https://github.com/JoaoMDPaiva.png" width="100" height="100" alt="Avatar de Manoella Weiser" style="border-radius:50%; object-fit:cover;" />
+      </a>
+    </td>
+    <td valign="middle">
+      <strong style="font-size:1.05rem;">João Paiva</strong><br/>
+      <a href="https://github.com/JoaoMDPaiva">@JoaoMDPaiva</a><br/>
+      <img alt="Papel" src="https://img.shields.io/badge/papel-Desenvolvedor-36a2eb?style=flat-square" />
+    </td>
+    <td width="110" align="center" valign="top">
+      <a href="https://github.com/adrylan">
+        <img src="https://github.com/adrylan.png" width="100" height="100" alt="Avatar de Manoella Weiser" style="border-radius:50%; object-fit:cover;" />
+      </a>
+    </td>
+    <td valign="middle">
+      <strong style="font-size:1.05rem;">Luis Adrylan</strong><br/>
+      <a href="https://github.com/adrylan">@adrylan</a><br/>
+      <img alt="Papel" src="https://img.shields.io/badge/papel-Desenvolvedor-36a2eb?style=flat-square" />
+    </td>
+    <td width="110" align="center" valign="top">
+      <a href="#">
+        <img src="#" width="100" height="100" alt="Avatar de Manoella Weiser" style="border-radius:50%; object-fit:cover;" />
+      </a>
+    </td>
+    <td valign="middle">
+      <strong style="font-size:1.05rem;">Luiz Campelo</strong><br/>
+      <a href="#">@luizCampelo</a><br/>
+      <img alt="Papel" src="https://img.shields.io/badge/papel-Desenvolvedor-36a2eb?style=flat-square" />
+    </td>
+    <td width="110" align="center" valign="top">
       <a href="https://chatgpt.com/codex">
         <img src="./members/codex.png" width="100" height="100" alt="Avatar de Codex GPT" style="border-radius:50%; object-fit:cover;" />
       </a>
