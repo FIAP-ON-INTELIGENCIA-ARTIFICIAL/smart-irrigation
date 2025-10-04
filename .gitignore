@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+
+# R
+.Rhistory
+.Rproj.user/
+
+
+# Arduino/PlatformIO
+.build/
+.pio/
+.vscode/
+
+
+# Dados
+data/*.csv
+!data/logs.csv
+
+
+# SO
+.DS_Store
