@@ -113,6 +113,8 @@ O sistema pode suspender a irrigação automática se houver previsão de chuva 
       <a href="https://github.com/manoellaweiser-gif">@manoellaweiser-gif</a><br/>
       <img alt="Papel" src="https://img.shields.io/badge/papel-Desenvolvedor-36a2eb?style=flat-square" />
     </td>
+  </tr>
+  <tr>
     <td width="110" align="center" valign="top">
       <a href="https://github.com/JoaoMDPaiva">
         <img src="https://github.com/JoaoMDPaiva.png" width="100" height="100" alt="Avatar de Manoella Weiser" style="border-radius:50%; object-fit:cover;" />
@@ -148,6 +150,8 @@ O sistema pode suspender a irrigação automática se houver previsão de chuva 
         <img src="./members/codex.png" width="100" height="100" alt="Avatar de Codex GPT" style="border-radius:50%; object-fit:cover;" />
       </a>
     </td>
+  </tr>
+  <tr>
     <td valign="middle">
       <strong style="font-size:1.05rem;">Codex GPT</strong><br/>
       <a href="https://chatgpt.com/codex">@codex</a><br/>
