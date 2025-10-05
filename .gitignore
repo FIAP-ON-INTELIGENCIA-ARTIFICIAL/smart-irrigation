@@ -14,11 +14,10 @@ __pycache__/
 .pio/
 .vscode/
 
-
-# Dados
-data/*.csv
-!data/logs.csv
-
-
 # SO
 .DS_Store
+
+.env
+firmware/include/env.h
+data/
+reports/
