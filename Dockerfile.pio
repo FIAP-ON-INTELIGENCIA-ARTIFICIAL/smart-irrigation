@@ -1,0 +1,14 @@
+FROM python:3.11-slim
+
+# dependências básicas
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    git curl ca-certificates build-essential \
+ && rm -rf /var/lib/apt/lists/*
+
+# instala PlatformIO via pip (sempre mais fresco)
+RUN pip install --no-cache-dir platformio
+
+# dica: crie um usuário não-root, opcional
+RUN useradd -ms /bin/bash dev
+USER dev
+WORKDIR /workspace

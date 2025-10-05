@@ -1,0 +1,47 @@
+services:
+  envgen:
+    build:
+      context: .
+      dockerfile: Dockerfile.tools
+    env_file: .env
+    volumes:
+      - ./:/workspace
+    working_dir: /workspace
+    command: python scripts/gen_env_header.py
+
+  pio:
+    build:
+      context: .
+      dockerfile: Dockerfile.pio
+    volumes:
+      - ./:/workspace
+    working_dir: /workspace/firmware
+    environment:
+      - PLATFORMIO_SETTING_ENABLE_TELEMETRY=No
+    # Linux: dá para mapear /dev/tty*
+    # devices:
+    #   - "/dev/ttyUSB0:/dev/ttyUSB0"
+    command: pio run -e esp32dev
+
+  logger:
+    build:
+      context: .
+      dockerfile: Dockerfile.tools
+    env_file: .env
+    volumes:
+      - ./:/workspace
+    working_dir: /workspace
+    # Linux: habilite o device abaixo
+    # devices:
+    #   - "/dev/ttyUSB0:/dev/ttyUSB0"
+    environment:
+      - ESP32_PORT=${ESP32_PORT:-/dev/ttyUSB0}
+      - ESP32_BAUD=${ESP32_BAUD:-115200}
+    command: python scripts/serial_to_csv.py
+
+  r:
+    image: rocker/tidyverse:latest
+    volumes:
+      - ./:/workspace
+    working_dir: /workspace
+    command: R -q -e 'source("scripts/analysis.R")'
