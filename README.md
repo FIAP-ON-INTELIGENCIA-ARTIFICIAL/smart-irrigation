@@ -79,6 +79,8 @@ C -->|API| F[OpenWeather]
 
 O sistema pode suspender a irrigação automática se houver previsão de chuva nas próximas 12h, consultando a API do OpenWeather.
 
+---
+
 ## 👥 Time
 
 <table>
