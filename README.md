@@ -138,13 +138,13 @@ O sistema pode suspender a irrigação automática se houver previsão de chuva 
       <img alt="Papel" src="https://img.shields.io/badge/papel-Desenvolvedor-36a2eb?style=flat-square" />
     </td>
     <td width="110" align="center" valign="top">
-      <a href="#">
-        <img src="#" width="100" height="100" alt="Avatar de Luiz Ampelo" style="border-radius:50%; object-fit:cover;" />
+      <a href="https://github.com/Luiz-Frederico">
+        <img src="https://github.com/Luiz-Frederico.png" width="100" height="100" alt="Avatar de Luiz Ampelo" style="border-radius:50%; object-fit:cover;" />
       </a>
     </td>
     <td valign="middle">
       <strong style="font-size:1.05rem;">Luiz Campelo</strong><br/>
-      <a href="#">@luizCampelo</a><br/>
+      <a href="https://github.com/Luiz-Frederico">@luizCampelo</a><br/>
       <img alt="Papel" src="https://img.shields.io/badge/papel-Desenvolvedor-36a2eb?style=flat-square" />
     </td>
   </tr>
