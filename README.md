@@ -159,7 +159,7 @@ pio device monitor --port /dev/cu.usbserial-5A7B0701171 -b 115200 --rts 0 --dtr 
 
 ### 2) Coleta (Python)`.
 Execute:
-   ```bash
+```bash
    ESP32_PORT=/dev/cu.usbserial-5A7B0701171 ESP32_BAUD=115200 python scripts/serial_to_csv.py
-
+```
 **Obs.:** A porta provavelmente será outra acima (usbserial-5A7B0701171) está como exemplo.
