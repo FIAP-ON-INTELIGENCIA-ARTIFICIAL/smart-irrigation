@@ -1,151 +1,159 @@
-# 🌾 Projeto AgroVision - Aplicação para Apoio ao Agronegócio
+# FIAP - Faculdade de Informática e Administração Paulista 
 
-## 📌 Resumo do Projeto
-O projeto tem como objetivo desenvolver **uma aplicação em Python** para auxiliar agricultores no **cálculo de áreas de plantio, aplicação de insumos e previsão de produção agrícola**.  
-Além da implementação prática, o projeto integra **análises estatísticas em R**, permitindo explorar dados coletados de forma mais aprofundada, apoiando a **tomada de decisão no agronegócio**.  
+<p align="center">
+<a href="https://www.fiap.com.br/">
+  <img src="https://github.com/henriquehsilva/template-projeto-fiap/blob/main/assets/logo-fiap.png" alt="FIAP - Faculdade de Informática e Admnistração Paulista" border="0" width="40%" height="40%">
+</a>
+</p>
 
-O escopo também inclui:
-- **Integração com APIs meteorológicas públicas**, para coleta e análise de dados climáticos.  
-- **Uso de GitHub** como plataforma de versionamento e colaboração, simulando um ambiente real de desenvolvimento de software.  
-- **Reflexão crítica** sobre o impacto social, ético e ambiental das tecnologias aplicadas ao agronegócio, por meio de atividades de leitura e resumo de artigos acadêmicos.  
+<br>
 
----
+# Smart-Irrigation (AgroVision TEAM)
 
-## Apresentação do Seu Jorge do Agro
+## 👨‍🎓 Integrantes
 
-Conheça o Seu Jorge, agricultor do interior de Goiás e cliente representativo do Projeto AgroVision.  
-Neste vídeo, ele compartilha sua experiência no campo e como a tecnologia pode transformar a produção agrícola.(click na imagem)
+<table>
+  <tr>
+    <td width="110" align="center" valign="top">
+      <a href="https://github.com/henriquehsilva">
+        <img src="https://github.com/henriquehsilva.png" width="100" height="100" alt="Henrique Silva" style="border-radius:50%; object-fit:cover;" />
+      </a>
+      <br/><strong>Henrique Silva</strong><br/>
+      <a href="https://github.com/henriquehsilva">@henriquehsilva</a>
+    </td>
+    <td width="110" align="center" valign="top">
+      <a href="https://github.com/manoellaweiser-gif">
+        <img src="https://github.com/manoellaweiser-gif.png" width="100" height="100" alt="Manoella Weiser" style="border-radius:50%; object-fit:cover;" />
+      </a>
+      <br/><strong>Manoella Weiser</strong><br/>
+      <a href="https://github.com/manoellaweiser-gif">@manoellaweiser-gif</a>
+    </td>
+    <td width="110" align="center" valign="top">
+      <a href="https://github.com/JoaoMDPaiva">
+        <img src="https://github.com/JoaoMDPaiva.png" width="100" height="100" alt="João Paiva" style="border-radius:50%; object-fit:cover;" />
+      </a>
+      <br/><strong>João Paiva</strong><br/>
+      <a href="https://github.com/JoaoMDPaiva">@JoaoMDPaiva</a>
+    </td>
+    <td width="110" align="center" valign="top">
+      <a href="https://github.com/adrylan">
+        <img src="https://github.com/adrylan.png" width="100" height="100" alt="Luis Adrylan" style="border-radius:50%; object-fit:cover;" />
+      </a>
+      <br/><strong>Luis Adrylan</strong><br/>
+      <a href="https://github.com/adrylan">@adrylan</a>
+    </td>
+    <td width="110" align="center" valign="top">
+      <a href="https://github.com/Luiz-Frederico">
+        <img src="https://github.com/Luiz-Frederico.png" width="100" height="100" alt="Luiz Campelo" style="border-radius:50%; object-fit:cover;" />
+      </a>
+      <br/><strong>Luiz Campelo</strong><br/>
+      <a href="https://github.com/Luiz-Frederico">@luizCampelo</a>
+    </td>
+  </tr>
+</table>
 
-[![Apresentação do Seu Jorge do Agro](https://img.youtube.com/vi/cSJFwvnrj1w/hqdefault.jpg)](https://www.youtube.com/watch?v=cSJFwvnrj1w)
-
----
-
-# 🌱 Smart Irrigation
-
-Sistema experimental de irrigação inteligente de baixo custo, projetado para **testar lógicas de irrigação baseadas em nutrientes (NPK), pH e umidade do solo**, com possibilidade de integração climática (OpenWeather) e análise estatística (R).
-
----
-
-## Visão Geral
-
-Nesta etapa, o protótipo:
-- Monitora **níveis de NPK** via três botões físicos (simulação);
-- Simula **pH** por meio de um **sensor LDR**;
-- Mede **umidade** com o **DHT22**;
-- Aciona automaticamente um **relé** (bomba d’água) conforme regras específicas da **cultura agrícola** selecionada.
-
-A proposta busca oferecer um **ambiente replicável e acessível** para pesquisa e ensino em automação agrícola.
-
----
-
-## Arquitetura
-
-```
-flowchart LR
-A[Sensores (NPK, LDR, DHT22)] --> B[Microcontrolador (ESP32/Arduino)]
-B -->|Serial| C[Python Simulator]
-C -->|Dados CSV| D[R - Analytics]
-C --> E[Relé / Bomba d'Água]
-C -->|API| F[OpenWeather]
-````
-
----
-## Funcionalidades
-
-### Visão Geral dos Módulos
-
-| Módulo     | Função                                             | Tecnologia               |
-|------------|----------------------------------------------------|--------------------------|
-| `firmware` | Leitura dos sensores e controle do relé           | C++ / Arduino            |
-| `simulator`| Geração e transmissão de dados                     | Python                   |
-| `analytics`| Análise estatística e otimização de thresholds     | R                        |
-| `docs`     | Documentação técnica e de negócio                  | Markdown / Draw.io       |
-
----
-
-## Regras de Irrigação (exemplo)
-
-### Parâmetros por Cultura
-
-| Cultura     | Umidade (%) | pH        | NPK (médio)            | Ação           |
-|-------------|--------------|-----------|-------------------------|----------------|
-| Tomateiro   | < 40         | 6.0–6.8   | N=20, P=10, K=20        | Acionar bomba  |
-| Alface      | < 50         | 5.5–6.5   | N=15, P=10, K=15        | Acionar bomba  |
-| Feijão      | < 35         | 6.0–7.0   | N=25, P=10, K=20        | Acionar bomba  |
-
----
-
-## Integração Climática (OpenWeather)
-
-O sistema pode suspender a irrigação automática se houver previsão de chuva nas próximas 12h, consultando a API do OpenWeather.
-
----
-
-## 👥 Time
+## 👩‍🏫 Tutor(a)
 
 <table>
   <tr>
     <td width="110" align="center" valign="top">
       <a href="https://github.com/SabrinaOtoni">
-        <img src="https://github.com/SabrinaOtoni.png" width="100" height="100" alt="Avatar de Sabrina Otoni" style="border-radius:50%; object-fit:cover;" />
+        <img src="https://github.com/SabrinaOtoni.png" width="100" height="100" alt="Sabrina Otoni (Tutor)" style="border-radius:50%; object-fit:cover;" />
       </a>
-    </td>
-    <td valign="middle">
-      <strong style="font-size:1.05rem;">Sabrina Otoni</strong><br/>
-      <a href="https://github.com/SabrinaOtoni">@SabrinaOtoni</a><br/>
-      <img alt="Papel: Tutor" src="https://img.shields.io/badge/papel-Tutor-2ea44f?style=flat-square" />
-    </td>
-    <td width="110" align="center" valign="top">
-      <a href="https://github.com/henriquehsilva">
-        <img src="https://github.com/henriquehsilva.png" width="100" height="100" alt="Avatar de Henrique Silva" style="border-radius:50%; object-fit:cover;" />
-      </a>
-    </td>
-    <td valign="middle">
-      <strong style="font-size:1.05rem;">Henrique Silva</strong><br/>
-      <a href="https://github.com/henriquehsilva">@henriquehsilva</a><br/>
-      <img alt="Papel" src="https://img.shields.io/badge/papel-Desenvolvedor-36a2eb?style=flat-square" />
-    </td>
-    <td width="110" align="center" valign="top">
-      <a href="https://github.com/manoellaweiser-gif">
-        <img src="https://github.com/manoellaweiser-gif.png" width="100" height="100" alt="Avatar de Manoella Weiser" style="border-radius:50%; object-fit:cover;" />
-      </a>
-    </td>
-    <td valign="middle">
-      <strong style="font-size:1.05rem;">Manoella Weiser</strong><br/>
-      <a href="https://github.com/manoellaweiser-gif">@manoellaweiser-gif</a><br/>
-      <img alt="Papel" src="https://img.shields.io/badge/papel-Desenvolvedor-36a2eb?style=flat-square" />
-    </td>
-  </tr>
-  <tr>
-    <td width="110" align="center" valign="top">
-      <a href="https://github.com/JoaoMDPaiva">
-        <img src="https://github.com/JoaoMDPaiva.png" width="100" height="100" alt="Avatar de João Paiva" style="border-radius:50%; object-fit:cover;" />
-      </a>
-    </td>
-    <td valign="middle">
-      <strong style="font-size:1.05rem;">João Paiva</strong><br/>
-      <a href="https://github.com/JoaoMDPaiva">@JoaoMDPaiva</a><br/>
-      <img alt="Papel" src="https://img.shields.io/badge/papel-Desenvolvedor-36a2eb?style=flat-square" />
-    </td>
-    <td width="110" align="center" valign="top">
-      <a href="https://github.com/adrylan">
-        <img src="https://github.com/adrylan.png" width="100" height="100" alt="Avatar de Luis Adrylan" style="border-radius:50%; object-fit:cover;" />
-      </a>
-    </td>
-    <td valign="middle">
-      <strong style="font-size:1.05rem;">Luis Adrylan</strong><br/>
-      <a href="https://github.com/adrylan">@adrylan</a><br/>
-      <img alt="Papel" src="https://img.shields.io/badge/papel-Desenvolvedor-36a2eb?style=flat-square" />
-    </td>
-    <td width="110" align="center" valign="top">
-      <a href="https://github.com/Luiz-Frederico">
-        <img src="https://github.com/Luiz-Frederico.png" width="100" height="100" alt="Avatar de Luiz Ampelo" style="border-radius:50%; object-fit:cover;" />
-      </a>
-    </td>
-    <td valign="middle">
-      <strong style="font-size:1.05rem;">Luiz Campelo</strong><br/>
-      <a href="https://github.com/Luiz-Frederico">@luizCampelo</a><br/>
-      <img alt="Papel" src="https://img.shields.io/badge/papel-Desenvolvedor-36a2eb?style=flat-square" />
+      <br/><strong>Sabrina Otoni</strong><br/>
+      <span>Tutor(a)</span><br/>
+      <a href="https://github.com/SabrinaOtoni">@SabrinaOtoni</a>
     </td>
   </tr>
 </table>
+
+## 🧭 Coordenador(a)
+
+<table>
+  <tr>
+    <td width="110" align="center" valign="top">
+      <a href="#">
+        <img src="https://github.com/agodoi.png" width="100" height="100" alt="Coordenador(a)" style="border-radius:50%; object-fit:cover; filter: grayscale(20%);" />
+      </a>
+      <br/><strong>André Godoi</strong><br/>
+      <span>Coordenador(a)</span><br/>
+      <a href="https://github.com/agodoi">@agodoi</a>
+    </td>
+  </tr>
+</table>
+
+---
+
+## 📜 Descrição
+
+O **Smart-Irrigation** (dentro do escopo do projeto **AgroVision**) é um sistema experimental e de baixo custo para **automação de irrigação** com foco em ensino e pesquisa. O protótipo integra:
+
+- **Firmware ESP32 (Arduino/C++)** para leitura de sensores/simulações (umidade do solo, LDR→pH didático, níveis N-P-K por botões), aplicação de **regras de histerese e segurança** e acionamento da bomba via relé.
+- **Coleta de dados em Python** pela porta serial, com geração de **CSV** e **NDJSON**, rotação diária de arquivos e logs brutos para auditoria.
+- **Análises em R** para consolidação dos dados e criação de relatórios/gráficos diários (ex.: evolução da umidade).
+- **Integração climática** via API pública (OpenWeather), permitindo políticas como **suspender irrigação se houver previsão de chuva**.
+
+Além da implementação, o projeto reforça boas práticas de desenvolvimento (Git/GitHub), documentação e reflexão sobre **impactos sociais, éticos e ambientais** da tecnologia no agronegócio.
+
+**Apresentação do “Seu Jorge do Agro”** – Cliente representativo:
+[![Apresentação do Seu Jorge do Agro](https://img.youtube.com/vi/cSJFwvnrj1w/hqdefault.jpg)](https://www.youtube.com/watch?v=cSJFwvnrj1w)
+
+
+**[FIAP | Fase 2] Smart-Irrigation
+”** – Funcionamento Completo do Projeto:
+[![Smart-Irrigation - uncionamento Completo do Projeto](https://img.youtube.com/vi/m1FP4ee3Ig4/hqdefault.jpg)](https://youtu.be/m1FP4ee3Ig4?si=tEUa6hlrO7wI_4af)
+
+---
+
+## 📁 Estrutura de pastas
+
+- **src/**: código-fonte do projeto ao longo das fases:
+  - `firmware/` – código do ESP32 (Arduino/C++).
+  - `scripts/` – (coleta serial → CSV/NDJSON) e utilitários.
+  - `analytics/` – scripts em R (`analysis.R`) para gráficos/relatórios.
+- **README.md**: guia geral do projeto.
+
+---
+
+## 🔧 Como executar o código
+
+### Pré-requisitos
+- **ESP32 + Arduino IDE** (ou PlatformIO)  
+  - Placa ESP32 instalada no Arduino IDE  
+  - Bibliotecas: `Firebase_ESP_Client`, `ArduinoJson`, `WiFi`, etc.
+- **Python 3.10+**  
+  - `pip install pyserial`
+- **R 4.x**  
+  - Pacotes base (para `read.csv` e `png`; instale extras se necessário)
+
+### 1) Firmware (ESP32)
+1. Build a aplicação
+```bash
+docker compose up --build -d
+```
+2. Crie `env.h` com suas 
+credenciais (Wi-Fi, Firebase, etc.).
+```bash
+mv .env.example .env /
+docker compose run --rm envgen
+```
+3. Compile 
+```bash
+docker compose run --rm pio
+```
+4. Abra `src/firmware/`
+5. Compile e faça o upload para o ESP32.
+```bash
+pio run -e esp32dev -t upload --upload-port /dev/cu.usbserial-5A7B0701171
+```
+6. Abra o **Serial Monitor** (115200 baud) e valide os logs de leitura e “CSVX”.
+```bash
+pio device monitor --port /dev/cu.usbserial-5A7B0701171 -b 115200 --rts 0 --dtr 0
+```
+
+### 2) Coleta (Python)`.
+2. Execute:
+   ```bash
+   ESP32_PORT=/dev/cu.usbserial-5A7B0701171 ESP32_BAUD=115200 python scripts/serial_to_csv.py
+
+**Obs.:** A porta provavelmente será outra acima (usbserial-5A7B0701171) está como exemplo.
