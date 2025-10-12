@@ -14,10 +14,11 @@ content = f"""#pragma once
 #define USER_PASSWORD "{os.getenv('FIREBASE_USER_PASS')}"
 #define FIRESTORE_DB  "{os.getenv('FIREBASE_FIRESTORE_DB')}"
 
-#define OM_LAT        "{os.getenv('OM_LAT')}"
-#define OM_LON        "{os.getenv('OM_LON')}"
-#define OM_LANG       "{os.getenv('OM_LANG')}"
-#define OM_UNITS      "{os.getenv('OM_UNITS')}"
+#define OW_API_KEY    "{os.getenv('OW_API_KEY')}"
+#define OW_LAT        "{os.getenv('OW_LAT')}"
+#define OW_LON        "{os.getenv('OW_LON')}"
+#define OW_LANG       "{os.getenv('OW_LANG')}"
+#define OW_UNITS      "{os.getenv('OW_UNITS')}"
 
 #define PUMP_ENABLE_DEFAULT "{os.getenv('PUMP_ENABLE_DEFAULT', 'false')}"
 """
