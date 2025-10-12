@@ -171,7 +171,7 @@ static int owmRequest(const String& pathAndQuery, bool httpsMode, String& payloa
     okBegin = http.begin(cli, url);
   }
 
-  Serial.printf("[OW] %s %s\n", httpsMode ? "HTTPS" : "HTTP", maskKeyInUrl(url).c_str());
+  // Serial.printf("[OW] %s %s\n", httpsMode ? "HTTPS" : "HTTP", maskKeyInUrl(url).c_str());
   if (!okBegin) {
     Serial.println("[OW] begin() falhou");
     return -1;
@@ -496,6 +496,8 @@ bool writeToFirestore(int soil_mv, int soil_pct, int ldr_mv, float ph,
                       int n_lvl, int p_lvl, int k_lvl, bool pump_on,
                       const String& isoTs) {
   FirebaseJson content, fields;
+
+  // Sensores locais
   fields.set("soil_mv/integerValue", soil_mv);
   fields.set("soil_pct/integerValue", soil_pct);
   fields.set("ldr_mv/integerValue", ldr_mv);
@@ -505,7 +507,7 @@ bool writeToFirestore(int soil_mv, int soil_pct, int ldr_mv, float ph,
   fields.set("npk_k/integerValue", k_lvl);
   fields.set("pump_on/booleanValue", pump_on);
 
-  // flags de chuva
+  // Rain hold
   fields.set("rain_hold/booleanValue", rainHold);
   if (rainHold) {
     unsigned long ms_left = (rainHoldUntilMs > millis()) ? (rainHoldUntilMs - millis()) : 0;
@@ -516,25 +518,55 @@ bool writeToFirestore(int soil_mv, int soil_pct, int ldr_mv, float ph,
     fields.set("rain_hold_until/stringValue", String(buf));
   }
 
+  // ===== OpenWeather (do seu fetchWeather) =====
+  fields.set("wx_code/integerValue", wx_code);
+  if (wx_desc.length())  fields.set("wx_desc/stringValue", wx_desc);
+  if (!isnan(wx_tempC))  fields.set("wx_temp_c/doubleValue", wx_tempC);
+  if (!isnan(wx_pop3h))  fields.set("wx_pop3h/doubleValue", wx_pop3h);            // 0..1
+  if (!isnan(wx_rain3h)) fields.set("wx_rain3h_mm/doubleValue", wx_rain3h);        // mm
+
+  // 3 próximos passos (POP%/chuva/hora)
+  for (int i=0;i<3;i++){
+    if (!isnan(wx_pop_h[i]))    fields.set(("h"+String(i)+"_pop_pct/doubleValue").c_str(), wx_pop_h[i]);     // 0..100
+    if (!isnan(wx_precip_h[i])) fields.set(("h"+String(i)+"_precip_mm/doubleValue").c_str(), wx_precip_h[i]); // mm
+    if (wx_time_h[i].length())  fields.set(("h"+String(i)+"_time/stringValue").c_str(), wx_time_h[i]);       // "HH:MM"
+  }
+
+  // Metadata
   fields.set("ts/timestampValue", isoTs);
   fields.set("dev/stringValue", "esp32_01");
   content.set("fields", fields);
 
-  String mask = "soil_mv,soil_pct,ldr_mv,ph,npk_n,npk_p,npk_k,pump_on,rain_hold,rain_hold_until,ts,dev";
-  bool ok = Firebase.Firestore.patchDocument(&fbdo, PROJECT_ID, FIRESTORE_DB,
-                                             "leituras/esp32_01", content.raw(), mask.c_str());
+  // Máscara inclui os novos campos wx_*
+  String mask =
+    "soil_mv,soil_pct,ldr_mv,ph,npk_n,npk_p,npk_k,pump_on,"
+    "rain_hold,rain_hold_until,"
+    "wx_code,wx_desc,wx_temp_c,wx_pop3h,wx_rain3h_mm,"
+    "h0_pop_pct,h0_precip_mm,h0_time,"
+    "h1_pop_pct,h1_precip_mm,h1_time,"
+    "h2_pop_pct,h2_precip_mm,h2_time,"
+    "ts,dev";
+
+  // Upsert no doc corrente
+  bool ok = Firebase.Firestore.patchDocument(
+              &fbdo, PROJECT_ID, FIRESTORE_DB,
+              "leituras/esp32_01", content.raw(), mask.c_str());
   if (!ok) {
     Serial.printf("[Firestore] patch erro: %s\n", fbdo.errorReason().c_str());
-    ok = Firebase.Firestore.createDocument(&fbdo, PROJECT_ID, FIRESTORE_DB,
-                                           "leituras/esp32_01", content.raw());
+    ok = Firebase.Firestore.createDocument(
+           &fbdo, PROJECT_ID, FIRESTORE_DB,
+           "leituras/esp32_01", content.raw());
     if (!ok) Serial.printf("[Firestore] create erro: %s\n", fbdo.errorReason().c_str());
   }
-  bool ok_hist = Firebase.Firestore.createDocument(&fbdo, PROJECT_ID, FIRESTORE_DB,
-                                                   "leituras/esp32_01/historico", content.raw());
+
+  // Histórico com os MESMOS campos (inclusive OpenWeather)
+  bool ok_hist = Firebase.Firestore.createDocument(
+                   &fbdo, PROJECT_ID, FIRESTORE_DB,
+                   "leituras/esp32_01/historico", content.raw());
   if (!ok_hist) Serial.printf("[Firestore] historico erro: %s\n", fbdo.errorReason().c_str());
+
   return ok && ok_hist;
 }
-
 // ========= BOTÕES (edge + debounce) =========
 void handleButtonEdge(int pin, bool &lastRaw, bool &lastStable, unsigned long &lastChange, int &level, const char label) {
   bool raw = digitalRead(pin);
@@ -583,7 +615,7 @@ void loop() {
       fetchWeather();
     }
   } else if (wifi_connected && !netReady()) {
-    Serial.println("[NET] Aguardando rede estabilizar para buscar meteo...");
+    Serial.println("[NET] Aguardando rede estabilizar para buscar OpenWeather...");
   }
 
   // expira hold
