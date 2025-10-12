@@ -9,9 +9,8 @@
 <br>
 
 # Smart-Irrigation 
----
 
-# AgroVision TEAM
+## AgroVision TEAM
 
 ## 👨‍🎓 Integrantes
 
