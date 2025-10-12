@@ -103,6 +103,8 @@ Além da implementação, o projeto reforça boas práticas de desenvolvimento (
 ”** – Funcionamento Completo do Projeto:
 [![Smart-Irrigation - uncionamento Completo do Projeto](https://img.youtube.com/vi/m1FP4ee3Ig4/hqdefault.jpg)](https://youtu.be/m1FP4ee3Ig4?si=tEUa6hlrO7wI_4af)
 
+
+LINK-VIDEO: [https://youtu.be/m1FP4ee3Ig4?si=tEUa6hlrO7wI_4af](https://youtu.be/m1FP4ee3Ig4?si=tEUa6hlrO7wI_4af)
 ---
 
 ## 📁 Estrutura de pastas
@@ -132,7 +134,7 @@ Além da implementação, o projeto reforça boas práticas de desenvolvimento (
 docker compose up --build -d
 ```
 2. Crie `env.h` com suas 
-credenciais (Wi-Fi, Firebase, etc.).
+credenciais (Wi-Fi, Firebase, OpenWeather, etc.).
 ```bash
 mv .env.example .env /
 docker compose run --rm envgen
