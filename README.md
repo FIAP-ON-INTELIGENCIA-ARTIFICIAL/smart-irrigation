@@ -154,7 +154,7 @@ pio device monitor --port /dev/cu.usbserial-5A7B0701171 -b 115200 --rts 0 --dtr 
 ```
 
 ### 2) Coleta (Python)`.
-2. Execute:
+Execute:
    ```bash
    ESP32_PORT=/dev/cu.usbserial-5A7B0701171 ESP32_BAUD=115200 python scripts/serial_to_csv.py
 
