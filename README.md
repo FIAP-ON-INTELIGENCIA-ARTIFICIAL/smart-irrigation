@@ -209,9 +209,7 @@ COMO desenvolvedor, QUERO transferir dados manualmente do Python para C/C++, PAR
 ---
 ### 5) proximos passos (backlog)
 
-12 - COMO agricultor, QUERO monitorar o consumo de água em tempo real, PARA otimizar o uso e reduzir custos operacionais.
-
-13 - COMO agricultor, QUERO uma PWA (Progressive Web App) para acessar o sistema de irrigação de qualquer lugar, PARA facilitar o gerenciamento e monitoramento.
+12 - COMO agricultor, QUERO uma PWA (Progressive Web App) para acessar o sistema de irrigação de qualquer lugar, PARA facilitar o gerenciamento e monitoramento.
 
 ---
 ## 📚 Referências
