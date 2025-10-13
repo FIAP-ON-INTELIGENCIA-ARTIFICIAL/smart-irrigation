@@ -182,6 +182,38 @@ Execute:
 4. Execute o script para gerar gráficos e relatórios.
 
 ---
+### 4) Stories entregues — Versão 1.0
+
+1 - COMO estudante, QUERO inserir dados via Serial no simulador, PARA validar rapidamente cenários sem depender de conectividade externa.
+
+COMO desenvolvedor, QUERO transferir dados manualmente do Python para C/C++, PARA testar o impacto da integração em ambientes de baixo custo.
+
+3 - COMO usuário, QUERO medir a umidade com o sensor DHT22, PARA que a irrigação ocorra automaticamente conforme o limite configurado.
+
+4 - COMO agricultor pesquisador, QUERO simular níveis de NPK através de botões, PARA testar diferentes condições de nutrientes sem precisar de sensores caros.
+
+5 - COMO estudante, QUERO simular o pH usando um sensor LDR, PARA compreender o impacto da acidez/alkalinidade no acionamento da irrigação.
+
+6 - COMO mentor acadêmico, QUERO que as regras sejam documentadas com base em KPIs, PARA garantir que os resultados possam ser comparados e replicados.
+
+7 - COMO pesquisador, QUERO analisar os dados dos sensores em R, PARA encontrar padrões estatísticos que melhorem a robustez das regras de irrigação.
+
+8 - COMO agricultor, QUERO que o sistema se integre ao OpenWeather, PARA suspender a irrigação quando houver previsão de chuva e evitar desperdício de água.
+
+9 - COMO agricultor, QUERO que um relé acione a bomba d’água automaticamente, PARA manter a irrigação alinhada às regras da cultura agrícola escolhida.
+
+10 - COMO usuário avançado, QUERO configurar regras de irrigação baseadas em nutrientes, pH e umidade, PARA personalizar o controle conforme o tipo de cultura.
+
+11 - COMO pesquisador, QUERO visualizar no dashboard a previsão do tempo ao lado dos sensores, PARA correlacionar clima e decisões de irrigação.
+
+---
+### 5) proximos passos (backlog)
+
+12 - COMO agricultor, QUERO monitorar o consumo de água em tempo real, PARA otimizar o uso e reduzir custos operacionais.
+
+13 - COMO agricultor, QUERO uma PWA (Progressive Web App) para acessar o sistema de irrigação de qualquer lugar, PARA facilitar o gerenciamento e monitoramento.
+
+---
 ## 📚 Referências
 - [Documentação Firebase ESP32](https://firebase-esp32.readthedocs.io/en/latest/)
 - [Documentação ArduinoJson](https://arduinojson.org/)
