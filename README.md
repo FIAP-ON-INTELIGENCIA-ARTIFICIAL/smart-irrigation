@@ -10,7 +10,9 @@
 
 # Smart-Irrigation 
 
-## AgroVision TEAM
+<p align="center">
+  <img src="https://github.com/FIAP-ON-INTELIGENCIA-ARTIFICIAL/agrovision-pwa/blob/main/logo-agrovision.png" alt="AgroVision" width="600">
+</p>
 
 ## 👨‍🎓 Integrantes
 
@@ -109,8 +111,17 @@ Além da implementação, o projeto reforça boas práticas de desenvolvimento (
 
 
 LINK-VIDEO: [https://youtu.be/m1FP4ee3Ig4?si=tEUa6hlrO7wI_4af](https://youtu.be/m1FP4ee3Ig4?si=tEUa6hlrO7wI_4af)
----
 
+---
+## Planejamento e Modelagem da Solução
+
+O projeto foi planejado utilizando o **HSD Framework** (Hypothesize → Shape → Deliver) para transformar ideias em hipóteses testáveis, definir escopos enxutos e orquestrar entregas contínuas, garantindo que as necessidades e expectativas dos usuários finais sejam atendidas.
+
+Para mais detalhes sobre o HSD Framework, consulte o [HSD Consultoria — da hipótese ao impacto.](https://henriquesilva.substack.com/)
+
+Board do projeto [Miro](https://miro.com/app/board/uXjVJC8Oa2s=/?share_link_id=719781750699).
+
+---
 ## 📁 Estrutura de pastas
 
 - **src/**: código-fonte do projeto ao longo das fases:
@@ -163,3 +174,22 @@ Execute:
    ESP32_PORT=/dev/cu.usbserial-5A7B0701171 ESP32_BAUD=115200 python scripts/serial_to_csv.py
 ```
 **Obs.:** A porta provavelmente será outra acima (usbserial-5A7B0701171) está como exemplo.
+
+### 3) Análise (R)
+1. Abra o RStudio.
+2. Carregue `src/analytics/analysis.R`.
+3. Ajuste o caminho do CSV (linha 10).
+4. Execute o script para gerar gráficos e relatórios.
+
+---
+## 📚 Referências
+- [Documentação Firebase ESP32](https://firebase-esp32.readthedocs.io/en/latest/)
+- [Documentação ArduinoJson](https://arduinojson.org/)
+- [Documentação PySerial](https://pyserial.readthedocs.io/en/latest/)
+- [Documentação OpenWeather API](https://openweathermap.org/api)  
+- [Documentação R](https://www.r-project.org/)
+
+---
+## 📝 Licença
+
+Este projeto está licenciado sob a Licença Creative Commons Atribuição 4.0 Internacional. Para mais detalhes, consulte o arquivo [LICENSE](LICENSE).
